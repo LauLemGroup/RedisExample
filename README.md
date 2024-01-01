@@ -1,10 +1,13 @@
 # RedisExample - LauLem.com
-Demo of using a Redis cache: with Spring Data and with @Cacheable
+Demo of using a Redis cache with Spring Data and with @Cacheable
 
 ## Getting Started
 
 ### Reference Documentation
-* Redis launch : https://redis.io/docs/data-types/timeseries/quickstart/ / https://www.baeldung.com/spring-data-redis-tutorial / https://www.baeldung.com/spring-boot-redis-cache / 
+* Redis launch :
+  * https://redis.io/docs/data-types/timeseries/quickstart/
+  * https://www.baeldung.com/spring-data-redis-tutorial
+  * https://www.baeldung.com/spring-boot-redis-cache
 
 ### Redis launch
 ```
@@ -15,8 +18,6 @@ docker run -p 6379:6379 -it --rm redis/redis-stack-server
 docker run -it --network host --rm redis redis-cli -h localhost -p 6379
 ```
 
-### Terminology
-- 
 ### URL
 * Cluster (not in this tutorial): https://redis.io/docs/management/scaling/
 * Encryption: https://redis.io/docs/management/security/encryption/
