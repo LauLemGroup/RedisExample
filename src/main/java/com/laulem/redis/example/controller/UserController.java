@@ -1,29 +1,41 @@
 package com.laulem.redis.example.controller;
 
-import com.laulem.redis.example.model.User;
+import com.laulem.redis.example.dto.UserDto;
 import com.laulem.redis.example.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @RestController
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/count")
-    public Long getCount() {
-        return userService.count();
+    public UserController(final UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/users")
-    public List<User> findAll() {
+    public List<UserDto> findAll() {
         return userService.findAll();
     }
 
+    @GetMapping("/users/{userId}")
+    public UserDto findById(@PathVariable final Long userId) {
+        return userService.findById(userId);
+    }
+
+    @GetMapping("/count")
+    public Long count() {
+        return userService.count();
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable() final Long id) {
+        userService.delete(id);
+    }
+
     @PostMapping(value = "/users")
-    public void save(@RequestBody final User user) {
-        userService.save(user);
+    public UserDto save(@RequestBody final UserDto userDto) {
+        return userService.save(userDto);
     }
 }
